@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below."
+title: 'Replication Package for "Admissions Priorities and Campus Diversity: Insights from the Common Data Set"'
+abstract: >-
+  Replication code and processed data for the paper "Admissions Priorities and
+  Campus Diversity: Insights from the Common Data Set." Assembles a
+  cross-institutional panel from Common Data Set reports and links stated
+  admissions priorities to first-year underrepresented-minority enrollment at
+  highly selective U.S. institutions, 2010-2022.
+type: software
+authors:
+  - family-names: Topaz
+    given-names: Chad M.
+    affiliation: Williams College
+version: v1.0.0
+doi: 10.5281/zenodo.21130740
+date-released: 2026-07-02
+url: "https://github.com/chadtopaz/common-data-set"
+license: MIT

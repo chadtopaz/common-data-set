@@ -5,7 +5,7 @@
 # Mirrors R/05_analysis.R idioms exactly (janitor::clean_names, prcomp,
 # sandwich::vcovHC HC2, t-based inference) so results reconcile with the
 # published pipeline. Validated in parallel against a Python implementation
-# (an independent Python cross-check): primary -7.81 pp, balanced -6.47 pp
+# (an independent Python implementation): primary -7.81 pp, balanced -6.47 pp
 # reproduce to the penny.
 #
 # Produces:
@@ -326,7 +326,8 @@ p <- ggplot(trend, aes(year_num, urm, color = group3, shape = group3, linetype =
 # Sized for a single text column (~5.2 in wide): embedded at column width the
 # lettering prints at 8-12 pt. PDF is vector (preferred by the journal).
 ggsave(file.path(OUT_DIR, "R_fig_urm_trend_3group.png"), p, width = 5.2, height = 3.9, dpi = 600)
-ggsave(file.path(OUT_DIR, "R_fig_urm_trend_3group.pdf"), p, width = 5.2, height = 3.9)
+# device = cairo_pdf embeds fonts in the vector PDF (journal requirement)
+ggsave(file.path(OUT_DIR, "R_fig_urm_trend_3group.pdf"), p, width = 5.2, height = 3.9, device = cairo_pdf)
 write_csv(trend, file.path(OUT_DIR, "R_trend_3group.csv"))
 
 cat("\nDone. Outputs in", OUT_DIR, "\n")

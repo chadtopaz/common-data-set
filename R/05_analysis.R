@@ -781,8 +781,9 @@ fig1 <- ggplot(fig1_data,
 # short aspect (not needlessly tall) so lettering prints at 8-12 pt; PDF is vector.
 ggsave(file.path(OUT_DIR, "figures", "fig1_urm_by_legacy.png"),
        fig1, width = 5.2, height = 3.2, dpi = 600)
+# device = cairo_pdf embeds fonts in the vector PDF (journal requirement)
 ggsave(file.path(OUT_DIR, "figures", "fig1_urm_by_legacy.pdf"),
-       fig1, width = 5.2, height = 3.2)
+       fig1, width = 5.2, height = 3.2, device = cairo_pdf)
 
 cat("Figure 1 saved.\n")
 
@@ -866,26 +867,31 @@ cat(sprintf("Appendix note: PCs 1–%d explain %.1f%% of variance in other prior
             N_PCS, 100 * cum_var[N_PCS]))
 
 # --- Figure A1: Scatter (legacy_z vs URM) with regression line ---
-# IMPORTANT: remove manual colors to avoid implying substantive meaning via palette
-figA1 <- ggplot(primary$school_data, aes(x = legacy_z, y = urm_prop)) +
-  geom_point(aes(color = public_private, shape = considers_legacy),
-             size = 2.5, alpha = 0.7) +
+# One legend for the three sector x legacy groups, distinguished by BOTH colour
+# and marker shape (legible without colour); wide canvas so the legend is not clipped.
+figA1_dat <- primary$school_data %>%
+  mutate(group3 = ifelse(considers_legacy == "Does not consider", "Public / non-legacy",
+                  ifelse(public_private == "Public", "Public / legacy", "Private / legacy")))
+figA1 <- ggplot(figA1_dat, aes(x = legacy_z, y = urm_prop)) +
+  geom_point(aes(color = group3, shape = group3), size = 2.5, alpha = 0.8) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
+  scale_color_manual(values = c("Public / non-legacy" = "#1b7837",
+                                "Public / legacy" = "#762a83",
+                                "Private / legacy" = "#b35806")) +
+  scale_shape_manual(values = c("Public / non-legacy" = 16,
+                                "Public / legacy" = 17,
+                                "Private / legacy" = 15)) +
   scale_y_continuous(labels = percent_format(accuracy = 1)) +
-  labs(
-    x = "Legacy emphasis (z-score)",
-    y = "URM enrollment share",
-    color = "Sector",
-    shape = "Legacy policy"
-  ) +
+  labs(x = "Legacy emphasis (z-score)", y = "URM enrollment share",
+       color = NULL, shape = NULL) +
   theme_gray(base_size = 11) +
   theme(legend.position = "bottom")
 
-# Default ggplot theme; sized for the supplement column with vector output.
+# Wider canvas prevents legend clipping; cairo_pdf embeds fonts.
 ggsave(file.path(OUT_DIR, "appendix", "figA1_scatter.png"), figA1,
-       width = 5.4, height = 4.0, dpi = 600)
+       width = 6.5, height = 4.2, dpi = 600)
 ggsave(file.path(OUT_DIR, "appendix", "figA1_scatter.pdf"), figA1,
-       width = 5.4, height = 4.0)
+       width = 6.5, height = 4.2, device = cairo_pdf)
 
 # --- Figure A2: Leave-one-out distribution (binary) ---
 figA2 <- ggplot(loo_results, aes(x = estimate_pp)) +
@@ -899,11 +905,11 @@ figA2 <- ggplot(loo_results, aes(x = estimate_pp)) +
   ) +
   theme_gray(base_size = 11)
 
-# Default ggplot theme; sized for the supplement column with vector output.
+# cairo_pdf embeds fonts.
 ggsave(file.path(OUT_DIR, "appendix", "figA2_leave_one_out.png"), figA2,
-       width = 5.4, height = 3.6, dpi = 600)
+       width = 6.5, height = 3.6, dpi = 600)
 ggsave(file.path(OUT_DIR, "appendix", "figA2_leave_one_out.pdf"), figA2,
-       width = 5.4, height = 3.6)
+       width = 6.5, height = 3.6, device = cairo_pdf)
 
 # --- Table A6: Panel diagnostics summary ---
 tableA6 <- tibble(
