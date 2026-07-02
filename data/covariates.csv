@@ -1,0 +1,47 @@
+school_name,sector,state,region,flagship,aa_restriction,ga_court_based,aa_restriction_incl_ga,aa_note
+Amherst College,Private,MA,Northeast,0,0,0,0,private
+Bowdoin College,Private,ME,Northeast,0,0,0,0,private
+Brown University,Private,RI,Northeast,0,0,0,0,private
+"CUNY, Baruch College",Public,NY,Northeast,0,0,0,0,"public, no restriction"
+"Cal Poly State, San Luis Obispo",Public,CA,West,0,1,0,1,CA Prop 209 (1998)
+California Institute of Technology,Private,CA,West,0,0,0,0,private
+Claremont McKenna College,Private,CA,West,0,0,0,0,private
+Columbia University (ONLY Columbia College and Columbia Engineering),Private,NY,Northeast,0,0,0,0,private
+Cornell University,Private,NY,Northeast,0,0,0,0,private (statutory colleges; treated private)
+Dartmouth College,Private,NH,Northeast,0,0,0,0,private
+Duke University,Private,NC,South,0,0,0,0,private
+Florida State University,Public,FL,South,0,1,0,1,FL One Florida (2000)
+Georgia Tech,Public,GA,South,0,0,1,1,GA court-based (Johnson 2001); primary aa_restriction=0
+Harvard University,Private,MA,Northeast,0,0,0,0,private
+Johns Hopkins University,Private,MD,South,0,0,0,0,private
+Massachusetts Institute of Technology,Private,MA,Northeast,0,0,0,0,private
+NC State,Public,NC,South,0,0,0,0,"public, no restriction"
+Northwestern University,Private,IL,Midwest,0,0,0,0,private
+Princeton University,Private,NJ,Northeast,0,0,0,0,private
+Purdue University,Public,IN,Midwest,0,0,0,0,"public, not primary flagship (IU Bloomington), no restriction"
+Rice University,Private,TX,South,0,0,0,0,private
+Stanford University,Private,CA,West,0,0,0,0,private
+Swarthmore College,Private,PA,Northeast,0,0,0,0,private
+Texas A&M,Public,TX,South,0,0,0,0,"public, not primary flagship (UT Austin), no state restriction"
+U-Wisconsin,Public,WI,Midwest,1,0,0,0,"public flagship, no restriction"
+UC Berkeley,Public,CA,West,1,1,0,1,CA Prop 209 (1998)
+UC Irvine,Public,CA,West,0,1,0,1,CA Prop 209 (1998)
+UCSD,Public,CA,West,0,1,0,1,CA Prop 209 (1998)
+UIUC,Public,IL,Midwest,1,0,0,0,"public flagship, no restriction"
+UMD,Public,MD,South,1,0,0,0,"public flagship, no restriction"
+UMich - Ann Arbor,Public,MI,Midwest,1,1,0,1,MI Proposal 2 (2006)
+UNC,Public,NC,South,1,0,0,0,"public flagship, no restriction (SFFA defendant, used race)"
+UT Austin,Public,TX,South,1,0,0,0,"public flagship, no restriction (used race through window)"
+UVA,Public,VA,South,1,0,0,0,"public flagship, no restriction"
+University of Chicago,Private,IL,Midwest,0,0,0,0,private
+University of Florida,Public,FL,South,1,1,0,1,FL One Florida (2000)
+University of Georgia,Public,GA,South,1,0,1,1,GA court-based (Johnson 2001); primary aa_restriction=0
+"University of Minnesota, Twin Cities",Public,MN,Midwest,1,0,0,0,"public flagship, no restriction"
+University of Pennsylvania,Private,PA,Northeast,0,0,0,0,private
+University of Southern California,Private,CA,West,0,0,0,0,private
+University of Washington,Public,WA,West,1,1,0,1,WA I-200 (1998); R-88 upheld 2019
+Vanderbilt University,Private,TN,South,0,0,0,0,private
+Wellesley College,Private,MA,Northeast,0,0,0,0,private
+William & Mary,Public,VA,South,0,0,0,0,"public, not flagship, no restriction"
+Williams College,Private,MA,Northeast,0,0,0,0,private
+Yale University,Private,CT,Northeast,0,0,0,0,private
